@@ -14,7 +14,7 @@ mongodb.connect("mongodb+srv://gem-stone:user123@cluster0.nx8o9.mongodb.net/thre
   console.log("DB connected")
 })
 
-app.post('/register',(req,res)=>{
+app.post('register',(req,res)=>{
   req.body._id = new Date().getTime();
   db.collection("users").insertOne(req.body,(error,data)=>{
     if(error){
@@ -25,7 +25,7 @@ app.post('/register',(req,res)=>{
   })
 });
 
-app.post("/login",(req,res)=>{
+app.post("login",(req,res)=>{
   //res.json("User logged in");
   console.log(req.body);
   var inputLoginDetail = req.body
@@ -63,7 +63,7 @@ function verifyUser(req,res,next){
   next();
 }
 
-app.get("/home", (req,res)=>{
+app.get("home", (req,res)=>{
   console.log(req);
   res.json("Your are in Home")
 })
